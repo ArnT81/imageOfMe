@@ -4,12 +4,14 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const app = express();
 const port = 4002;
+const https = require('https');
 const { SSL_KEY, SSL_CERT } = process.env;
 
 
 app.get('/', (req, res) => {
 	res.sendFile(`${__dirname}/media/me.png`)
 });
+
 
 if (__dirname.includes('Desktop')) {
 	app.listen(port, console.log(`Server started on port ${port}, serving an image of me`));
